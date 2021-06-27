@@ -10,10 +10,11 @@ job('Spleeter Pipeline' ) {
     steps {       
 
         shell('''
-        ls -lrth
-        pip3  install aws-sam-cli        
-        apt update -y
-        
+                apt update && apt install git -y && apt install make -y 
+                git clone https://github.com/awslabs/git-secrets.git && cd git-secrets/
+                make install 
+                git secrets --register-aws --global && cd ../
+                if [  git secrets --scan ]; then exit; else true; fi                    
         ''')
     }
 
