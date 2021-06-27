@@ -22,7 +22,7 @@ job('Spleeter Pipeline' ) {
 
           shell('''
                 apt install python3-pip &&  pip3 install awscli    
-                ls | grep wav         
+                ls         
         ''')
 
 
