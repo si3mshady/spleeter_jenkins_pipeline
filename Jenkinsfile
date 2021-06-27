@@ -21,8 +21,10 @@ job('Spleeter Pipeline' ) {
         ''')
 
           shell('''
-                apt install python3-pip &&  pip3 install awscli    
-                ls         
+                apt install python3-pip &&  pip3 install awscli  
+                for wav in $(ls | grep wav); do  aws s3 cp $wav s3://spleeter-si3mshady; done && \\
+                for wav in $(ls | grep wav); do  rm -rf $wav; done                 
+
         ''')
 
 
