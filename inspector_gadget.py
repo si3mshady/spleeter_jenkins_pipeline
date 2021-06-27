@@ -4,7 +4,7 @@ sts=boto3.client('sts')
 
 assumed_role_object=sts.assume_role(
     RoleArn="arn:aws:iam::674406573293:role/EC2-Kratos",
-    RoleSessionName=str(uuid.uuid4())
+    RoleSessionName="AssumeRoleSession1"
 )
 creds=assumed_role_object.get('Credentials')
 
