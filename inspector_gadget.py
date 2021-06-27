@@ -7,6 +7,8 @@ assumed_role_object=sts.assume_role(
     RoleSessionName="AssumeRoleSession1"
 )
 creds=assumed_role_object.get('Credentials')
+print(creds.keys())
+print(creds)
 
 
 class InspectorGadget():
