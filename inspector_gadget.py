@@ -1,5 +1,12 @@
 import boto3, time, uuid
 
+sts=boto3.client('sts')
+
+assumed_role_object=sts.assume_role(
+    RoleArn="arn:aws:iam::674406573293:role/EC2-Kratos",
+    RoleSessionName=str(uuid.uuid4())
+)
+creds=assumed_role_object.get('Credentials')
 
 
 class InspectorGadget():
@@ -11,7 +18,13 @@ class InspectorGadget():
     }
 
     def __init__(self, targetAssessmentName, rules=rule_packages):
-        self.inspector = boto3.client('inspector', region_name='us-east-1')
+       
+
+        self.inspector = boto3.client('inspector', 
+        aws_access_key_id=creds.get('AccessKeyId'),
+        aws_secret_acesss_key=creds.get('SecretAccessKey'),
+        aws_session_token=creds.get('SessionToken'),        
+        region_name='us-east-1')
         self.rule_arns = list(map(lambda x: x, rules.values()))
         self.targetAssessmentName = targetAssessmentName
 
