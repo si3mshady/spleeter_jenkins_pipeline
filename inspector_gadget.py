@@ -39,7 +39,7 @@ class InspectorGadget():
         resp = self.inspector.create_resource_group(
             resourceGroupTags=[
                 {
-                    'key': 'si3m',
+                    'key': str(uuid.uuid4()),
                     'value': 'shady'
                 },
             ]
