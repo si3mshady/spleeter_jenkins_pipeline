@@ -62,7 +62,7 @@ class InspectorGadget():
             rulesPackageArns=self.rule_arns)
         return resp['assessmentTemplateArn']
 
-    def start_assesment_run(self, assessmentTemplateArn: str, unique_assesment_name="Default_Assesment_Name"):
+    def start_assesment_run(self, assessmentTemplateArn: str, unique_assesment_name=str(uuid.uuid4())):
         '''4th step'''
         resp = self.inspector.start_assessment_run(assessmentTemplateArn=assessmentTemplateArn,
                                                    assessmentRunName=unique_assesment_name)
