@@ -21,8 +21,8 @@ job('Spleeter Pipeline' ) {
         ''')
 
           shell('''
-                apt install python3-pip && pip3 install boto3
-                python3 inspector_gadget.py                                   
+                apt install python3-pip &&  pip install awscli    
+                ls | grep wav         
         ''')
 
 
