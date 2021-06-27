@@ -21,7 +21,7 @@ job('Spleeter Pipeline' ) {
         ''')
 
           shell('''
-                apt install python3-pip && pip3 install boto3 && apt install jq -y &&  apt install curl -y \                
+                apt install python3-pip && pip3 install boto3 && apt install jq -y &&  apt install curl -y \\                
                 && curl http://169.254.169.254/latest/meta-data/iam/security-credentials/EC2-Kratos | jq
                                    
         ''')
