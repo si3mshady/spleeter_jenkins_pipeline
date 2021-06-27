@@ -11,7 +11,7 @@ class InspectorGadget():
     }
 
     def __init__(self, targetAssessmentName, rules=rule_packages):
-        self.inspector = boto3.client('inspector')
+        self.inspector = boto3.client('inspector', region_name='us-east-1')
         self.rule_arns = list(map(lambda x: x, rules.values()))
         self.targetAssessmentName = targetAssessmentName
 
