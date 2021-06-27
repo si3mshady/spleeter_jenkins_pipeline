@@ -1,4 +1,5 @@
-import boto3, time
+import boto3, time, uuid
+
 
 
 class InspectorGadget():
@@ -84,7 +85,7 @@ class InspectorGadget():
         return resp
 
 if __name__ == "__main__":
-    ig = InspectorGadget()
+    ig = InspectorGadget(str(uuid.uuid4()))
     response  = ig.checkForVulns()
     print(response)
 
