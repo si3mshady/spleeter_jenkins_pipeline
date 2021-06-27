@@ -16,7 +16,9 @@ job('Spleeter Pipeline' ) {
                 git clone https://github.com/awslabs/git-secrets.git && cd git-secrets/
                 make install 
                 git secrets --register-aws --global && cd ../
-                if [  git secrets --scan ]; then exit; else true; fi 
+                git secrets --scan
+                if [ $? -eq 0 ]; then exit -1; fi           
+                 
                   
         ''')
 
