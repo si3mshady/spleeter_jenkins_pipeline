@@ -1,14 +1,6 @@
 import boto3, time, uuid
 
-# sts=boto3.client('sts')
 
-# assumed_role_object=sts.assume_role(
-#     RoleArn="arn:aws:iam::674406573293:role/EC2-Kratos",
-#     RoleSessionName="AssumeRoleSession1"
-# )
-# creds=assumed_role_object.get('Credentials')
-# print(creds.keys())
-# print(creds)
 
 
 class InspectorGadget():
