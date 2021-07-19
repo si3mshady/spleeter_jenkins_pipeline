@@ -2,8 +2,8 @@ version: '3.7'
 services:
   jenkins-root:
     environment:
-     -  AWS_ACCESS_KEY_ID=AKIAZ2BODUTWU6F3DBFQ
-     -  AWS_SECRET_ACCESS_KEY=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
+     -  AWS_ACCESS_KEY_ID=AKIAZdfs3DBFQ
+     -  AWS_SECRET_ACCESS_KEY=yg61YiFlaHdfBVNBCdeqT0Bxga6TVHx
     container_name: jenkins-iam-root
     image: si3mshady/jenkins-iam-root
     ports:
